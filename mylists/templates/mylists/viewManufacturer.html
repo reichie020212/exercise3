@@ -1,5 +1,23 @@
 {% extends 'mylists/base.html' %}
 
 {% block content %}
-Car1
+<div class="searching">
+<form method="get" action="." class="search" style="margin:auto;max-width:500px">
+	<input type="text" id="searchBox" class="input-medium search-query" name="q" placeholder="Search">
+	<button type="submit"><i class="fa fa-search">Search</i></button>
+</form>
+<div class="manufacturerlists">
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Location</th>
+	  </tr>
+	  {% for manufacturers in manufacturer %}
+	  <tr>
+	    <td>{{ manufacturers.name }}</td>
+	    <td>{{ manufacturers.location }}</td>
+	  </tr>
+	  {% endfor %}
+	</table>
+</div>
 {% endblock %}

@@ -3,13 +3,16 @@
 <html>
 	<head>
 		<title>Exercise 3</title>
+		<link rel="stylesheet" href="{% static 'css/mylists.css'%}">
 	</head>
 	<body>
-		<li>
-			<ul>Car</ul>
-			<ul>Manufacturer</ul>
-			<ul>Person</ul>
-		</li>
+		<div class="page-header">
+			<ul>
+				<li><a href="/car/">Car</a></li>
+				<li><a href="/manufacturer/">Manufacturer</a></li>
+				<li><a href="/person/">Person</a></li>
+			</ul>
+		</div>
 		{% block content %}
 		{% endblock %}
 	</body>

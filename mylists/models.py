@@ -9,7 +9,7 @@ class Manufacturer(models.Model):
 	location = models.CharField(max_length=60)
 
 	def __str__(self):
-		return self.name
+		return "%s - %s" %(self.name,self.location)
 
 class Person(models.Model):
 	firstname = models.CharField(max_length=60)
@@ -25,4 +25,4 @@ class Car(models.Model):
 	bought_by = models.ForeignKey(Person, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.carbrand
+		return "%s - %s" %(self.carbrand,self.carmodel)
