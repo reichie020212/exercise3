@@ -18,10 +18,10 @@
 	  </tr>
 	  {% for cars in car %}
 	  <tr>
-	    <td>{{ cars.carbrand }}</td>
-	    <td>{{ cars.carmodel }}</td>
-	    <td>{{ cars.manufacturer }}</td>
-	    <td>{{ cars.bought_by }}</td>
+	    <td><a href="{% url 'displaylist1' pk=cars.pk %}">{{ cars.carbrand }}</a></td>
+	    <td><a href="{% url 'displaylist1' pk=cars.pk %}">{{ cars.carmodel }}</a></td>
+	    <td><a href="{% url 'displaylist1' pk=cars.pk %}">{{ cars.manufacturer }}</a></td>
+	    <td><a href="{% url 'displaylist1' pk=cars.pk %}">{{ cars.bought_by }}</a></td>
 	  </tr>
 	  {% endfor %}
 	</table>
@@ -29,8 +29,6 @@
 
 <div class="buttonarea">
 	<a href="add/" class="button">Add</a>
-	<a href="/edit/" class="button">Edit</a>
-	<a href="/delete/" class="button">Delete</a>
 </div>
 
 {% endblock %}

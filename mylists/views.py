@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from django.shortcuts import redirect
 from django.shortcuts import redirect, get_object_or_404
 
 from .forms import CarForm,ManufacturerForm,PersonForm
@@ -36,7 +35,7 @@ def add(request):
 			form = CarForm()
 			return render(request, 'mylists/add.html', {'form':form})
 
-	if "manufacturer" in request.META.get("HTTP_REFERER"):
+	elif "manufacturer" in request.META.get("HTTP_REFERER"):
 		if request.method == "POST":
 			form = ManufacturerForm(request.POST)
 			if form.is_valid():
@@ -47,7 +46,7 @@ def add(request):
 			form = ManufacturerForm()
 			return render(request, 'mylists/add.html', {'form':form})
 	
-	if "person" in request.META.get("HTTP_REFERER"):
+	elif "person" in request.META.get("HTTP_REFERER"):
 		if request.method == "POST":
 			form = PersonForm(request.POST)
 			if form.is_valid():
@@ -57,3 +56,14 @@ def add(request):
 		else:
 			form = PersonForm()
 			return render(request, 'mylists/add.html', {'form':form})
+
+def displaylist(request, pk):
+	if "car" in request.META.get("HTTP_REFERER"):
+		car = get_object_or_404(Car, pk=pk)
+		return render(request, 'mylists/displaylist.html', {'car':car})
+	if "manufacturer" in request.META.get("HTTP_REFERER"):
+		manufacturer = get_object_or_404(Manufacturer, pk=pk)
+		return render(request, 'mylists/displaylist.html', {'manufacturer':manufacturer})
+	if "person" in request.META.get("HTTP_REFERER"):
+		person = get_object_or_404(Person, pk=pk)
+		return render(request, 'mylists/displaylist.html', {'person':person})

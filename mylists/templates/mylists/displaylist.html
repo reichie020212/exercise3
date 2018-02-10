@@ -1,0 +1,44 @@
+{% extends 'mylists/base.html' %}
+
+{% block content %}
+
+<div class="edit-delete">
+	
+</div>
+
+<table>
+	{% if "car" in request.path  %}
+	  <tr>
+	    <th>Brand</th>
+	    <th>Model</th>
+	    <th>Manufacturer</th>
+	    <th>Bought By</th>
+	  </tr>
+	  <tr>
+	    <td><a >{{ car.carbrand }}</a></td>
+	    <td><a >{{ car.carmodel }}</a></td>
+	    <td><a >{{ car.manufacturer }}</a></td>
+	    <td><a >{{ car.bought_by }}</a></td>
+	  </tr>
+	{% elif "manufacturer" in request.path  %}
+	<tr>
+	    <th>Name</th>
+	    <th>Location</th>
+	  </tr>
+	 <tr>
+	    <td>{{ manufacturer.name }}</td>
+	    <td>{{ manufacturer.location }}</td>
+	  </tr>
+	{% elif "person" in request.path  %}
+	<tr>
+	    <th>First Name</th>
+	    <th>Last Name</th>
+	  </tr>
+	  <tr>
+	    <td>{{ person.firstname }}</td>
+	    <td>{{ person.lastname }}</td>
+	  </tr>
+	{% endif %}
+</table>
+
+{% endblock %}

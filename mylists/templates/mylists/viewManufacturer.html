@@ -15,8 +15,8 @@
 	  </tr>
 	  {% for manufacturers in manufacturer %}
 	  <tr>
-	    <td>{{ manufacturers.name }}</td>
-	    <td>{{ manufacturers.location }}</td>
+	    <td><a href="{% url 'displaylist2' pk=manufacturers.pk %}">{{ manufacturers.name }}</a></td>
+	    <td><a href="{% url 'displaylist2' pk=manufacturers.pk %}">{{ manufacturers.location }}</td>
 	  </tr>
 	  {% endfor %}
 	</table>
@@ -24,7 +24,5 @@
 
 <div class="buttonarea">
 	<a href="add/" class="button">Add</a>
-	<a href="/edit/" class="button">Edit</a>
-	<a href="/delete/" class="button">Delete</a>
 </div>
 {% endblock %}
