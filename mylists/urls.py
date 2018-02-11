@@ -1,7 +1,12 @@
 from django.conf.urls import url
+
 from . import views
+from django.contrib.auth import views as loginviews
 
 urlpatterns = [
+	url(r'^$', loginviews.login,name="login"),
+	url(r'^accounts/profile/$', views.redirecting,name="redirecting"),
+	url(r'^logout/$', loginviews.logout, name="logout", kwargs={'next_page': '/'}),
 	url(r'^car/add/$',views.add,name="add"),
 	url(r'^manufacturer/add/$',views.add,name="add"),
 	url(r'^person/add/$',views.add,name="add"),

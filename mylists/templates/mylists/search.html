@@ -1,0 +1,14 @@
+{% extends 'mylists/base.html' %}
+
+{% block content %}
+
+<form method="GET">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  <ol>
+  {% for car in filter.qs %}
+    <li>{{ car.carbrand }} </li>
+  {% endfor %}
+</ol>
+{% endblock %}

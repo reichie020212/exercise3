@@ -1,0 +1,4 @@
+Django==1.11.10
+django-filter==1.1.0
+pi==0.1.2
+pytz==2017.3

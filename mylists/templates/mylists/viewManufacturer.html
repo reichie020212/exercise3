@@ -1,11 +1,11 @@
 {% extends 'mylists/base.html' %}
 
 {% block content %}
-<div class="searching">
-<form method="get" action="." class="search" style="margin:auto;max-width:500px">
-	<input type="text" id="searchBox" class="input-medium search-query" name="q" placeholder="Search">
-	<button type="submit"><i class="fa fa-search">Search</i></button>
-</form>
+<div class="searchbar">
+<form method="GET">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
 </div>
 <div class="manufacturerlists">
 	<table>
@@ -13,7 +13,7 @@
 	    <th>Name</th>
 	    <th>Location</th>
 	  </tr>
-	  {% for manufacturers in manufacturer %}
+	  {% for manufacturers in filter.qs %}
 	  <tr>
 	    <td><a href="{% url 'displaylist2' pk=manufacturers.pk %}">{{ manufacturers.name }}</a></td>
 	    <td><a href="{% url 'displaylist2' pk=manufacturers.pk %}">{{ manufacturers.location }}</td>

@@ -12,6 +12,10 @@
 				<li><a href="/manufacturer/">Manufacturer</a></li>
 				<li><a href="/person/">Person</a></li>
 			</ul>
+			{% if user.is_authenticated %}
+        		<a href="{% url 'logout' %}">Log out</a>
+        	{% endif %}	
+
 		</div>
 		{% block content %}
 		{% endblock %}
