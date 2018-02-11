@@ -2,10 +2,6 @@
 
 {% block content %}
 
-<div class="edit-delete">
-	
-</div>
-
 <table>
 	{% if "car" in request.path  %}
 	  <tr>
@@ -20,6 +16,7 @@
 	    <td><a >{{ car.manufacturer }}</a></td>
 	    <td><a >{{ car.bought_by }}</a></td>
 	  </tr>
+	  
 	{% elif "manufacturer" in request.path  %}
 	<tr>
 	    <th>Name</th>
@@ -40,5 +37,11 @@
 	  </tr>
 	{% endif %}
 </table>
+<div class="buttonarea2">
+	<a href="edit/" class="button">Edit</a>
+	<a href="delete/" class="button">Delete</a>
+		</div>
+
+
 
 {% endblock %}
