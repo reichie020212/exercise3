@@ -3,7 +3,16 @@
 {% block content %}
 <div class="searchbar">
 <form method="GET">
-    {{ filter.form.as_p }}
+    <table>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+		</tr>
+		<tr>
+    		<td>{{ filter.form.firstname }}</td>
+    		<td>{{ filter.form.lastname }}</td>
+		</tr>
+    </table>
     <button type="submit">Search</button>
   </form>
 </div>
