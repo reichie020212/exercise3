@@ -8,13 +8,14 @@
 	<body>
 		<div class="page-header">
 			<ul>
-				<li><a href="/car/">Car</a></li>
-				<li><a href="/manufacturer/">Manufacturer</a></li>
-				<li><a href="/person/">Person</a></li>
+				<li><a href="/car/" class="lists">Car</a></li>
+				<li><a href="/manufacturer/" class="lists">Manufacturer</a></li>
+				<li><a href="/person/" class="lists">Person</a></li>
+				{% if user.is_authenticated %}
+        		<li><a href="{% url 'logout' %}" class="logout">Log out</a></li>
+        		{% endif %}	
 			</ul>
-			{% if user.is_authenticated %}
-        		<a href="{% url 'logout' %}">Log out</a>
-        	{% endif %}	
+			
 
 		</div>
 		{% block content %}
